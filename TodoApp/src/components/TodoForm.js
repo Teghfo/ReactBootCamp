@@ -72,7 +72,7 @@ class TodoForm extends React.Component {
             />
           ))}
         </div>
-        <div>
+        <div className="App">
           <button onClick={() => this.setState({ showList: "All" })}>
             All
           </button>{" "}

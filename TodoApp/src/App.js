@@ -1,7 +1,7 @@
 import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import TodoForm from "./component/TodoForm";
+import TodoForm from "./components/TodoForm";
 
 // function App() {
 //   return (

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./UserSelfCard.module.scss";
 
 const UserSelfCard = ({ users }) => {
@@ -7,9 +7,11 @@ const UserSelfCard = ({ users }) => {
     header: "Hi, My name is",
     content: `${users.name.first} ${users.name.last}`
   });
+
+  console.log(users);
   return (
     <>
-      <div className={styles.card}>
+      <div className={`${styles.card} ${styles.selfCard}`}>
         <div>
           <img className={styles.image} src={users.picture.large} />
         </div>
@@ -17,6 +19,7 @@ const UserSelfCard = ({ users }) => {
           <p className={styles.header}>{textContent.header}</p>
           <p className={styles.content}>{textContent.content}</p>
         </div>
+
         <div></div>
       </div>
     </>

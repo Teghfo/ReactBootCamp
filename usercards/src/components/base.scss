@@ -1,0 +1,13 @@
+.card {
+  display: inline-block;
+  background-color: white;
+  border-radius: 10px;
+  width: 60%;
+  min-width: 250px;
+  max-width: 600px;
+  margin: 30px auto;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  padding: 20px;
+  text-align: center;
+}

@@ -6,15 +6,30 @@
   max-width: 600px;
   margin: 0 auto;
   padding: 20px;
+  text-align: center;
 }
 
 .image {
+  border: 1px solid gray;
+  padding: 5px;
   border-radius: 50%;
   display: inline-block;
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
+  margin: 0 auto;
+}
 
+.detail {
+  margin: 20px;
   p {
     margin: 0;
+  }
+
+  .header {
+    font-size: 20px;
+  }
+  .content {
+    font-size: 30px;
+    font-weight: 500;
   }
 }

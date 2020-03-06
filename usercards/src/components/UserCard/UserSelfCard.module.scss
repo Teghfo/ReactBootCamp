@@ -26,6 +26,26 @@
     }
   }
 }
+.buttonContainer {
+  font-size: 30px;
+  color: gray;
+  margin: 0 auto;
+  span {
+    position: static;
+    margin: 0 10px;
+    &:hover {
+      transition: 0.5 ease-in;
+      color: green;
+      // &:before {
+      //   border-top: 3px solid green;
+      //   content: " ";
+      //   margin: 0;
+      //   width: 30px;
+      //   position: absolute;
+      // }
+    }
+  }
+}
 
 @media only screen and (max-width: 700px) {
   .selfCard {

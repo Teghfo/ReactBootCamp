@@ -5,6 +5,7 @@ import "./App.css";
 import UserList1 from "./contextTest";
 import Theme from "./Theme";
 import { ComponentA } from "./context/context1";
+import { NewByClick, NewByMouse } from "./CounterTestHoc";
 
 export function Transfer(props) {
   const [state, setstate] = useState("initialState");
@@ -18,11 +19,14 @@ function App() {
       {/* <Theme /> */}
       {/* <UserList1 /> */}
       {/* <ComponentA /> */}
-      <Transfer>
+      {/* <Transfer>
         <UserList1 />
         <h1>ashkan</h1>
         <p>Mapsa</p>
-      </Transfer>
+      </Transfer> */}
+
+      <NewByClick user="ashkan" />
+      <NewByMouse user="Sakineh" />
     </div>
   );
 }

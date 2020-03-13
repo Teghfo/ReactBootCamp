@@ -16,6 +16,7 @@ export default function UseRefTest() {
   const refEmail = useRef();
   const refSubmit = useRef();
   const refPTag = useRef({ value: "ashkan" });
+  // const prevState
 
   function handleUserRef(event) {
     if (event.key === "Enter") {
@@ -90,7 +91,7 @@ function Timer({ step, initialCount }) {
   };
   const handleStart = () => {
     if (!interval.current) {
-      setInterval(() => {
+      interval.current = setInterval(() => {
         setTimer(prevTimer => prevTimer + step);
       }, 1000);
     }

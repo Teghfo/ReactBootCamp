@@ -8,7 +8,7 @@
 // if isLogined false ----> private  =====> <Redirect /> {isLogined ? 'ok': 'page login'}
 // signOut ----> isLogined ----> false
 
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect, useState, forwardRef } from "react";
 
 export default function UseRefTest() {
   const refUserName = useRef();
@@ -44,21 +44,22 @@ export default function UseRefTest() {
   useEffect(() => {
     refUserName.current.focus();
   }, []);
+  console.log(refUserName);
 
   return (
     <div>
-      <input
+      <Input
         type="text"
         placeholder="UserName"
-        onKeyDown={handleUserRef}
+        onKeyEnter={handleUserRef}
         ref={refUserName}
       />
       <br />
       <br />
-      <input
+      <Input
         type="password"
         placeholder="Password"
-        onKeyDown={handlePassRef}
+        onKeyEnter={handlePassRef}
         ref={refPassword}
       />
       <br />
@@ -74,14 +75,14 @@ export default function UseRefTest() {
       <button type="submit" onKeyDown={handleSubmitRef} ref={refSubmit}>
         Submit
       </button>
-      <Timer step={1} initialCount={5} />
+      {/* <Timer step={1} initialCount={5} /> */}
       <p ref={refPTag}>{refPTag.current.value}</p>{" "}
       {/* in kar kheili kasife va ba state handle konid chon tu faze render ejra nemish */}
     </div>
   );
 }
 
-function Timer({ step, initialCount }) {
+function TimerFunctional({ step, initialCount }) {
   const [timer, setTimer] = useState(initialCount);
   // const [interval, setInterval] = useState({ current: null });
   const interval = useRef();
@@ -125,3 +126,74 @@ function Timer({ step, initialCount }) {
     </>
   );
 }
+
+export class Timer extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      counter: 0
+    };
+    this.interval = React.createRef();
+  }
+
+  componentDidMount() {
+    this.interval.current = setInterval(() => {
+      this.setState(prevState => ({
+        counter: prevState.counter + 1
+      }));
+    }, 1000);
+  }
+
+  handleStop() {
+    clearInterval(this.interval.current);
+    this.interval.current = null;
+  }
+  handleStart() {
+    if (!this.interval.current) {
+      this.interval.current = setInterval(() => {
+        this.setState({ counter: this.state.counter + 1 });
+      }, 1000);
+    }
+  }
+  componentWillUnmount() {
+    clearInterval(this.interval.current);
+  }
+
+  render() {
+    console.log(this.state);
+    return (
+      <>
+        <UseRefThirdUsage counter={this.state.counter} />
+        <button onClick={() => this.handleStart()}>Start</button>
+        <button onClick={() => this.handleStop()}>Stop</button>
+      </>
+    );
+  }
+}
+
+function UseRefThirdUsage(props) {
+  const [state, setstate] = useState(0);
+  const refPrevState = useRef(state);
+  const refPrevProps = useRef(props.counter);
+
+  useEffect(() => {
+    refPrevProps.current = props.counter;
+  }, [props]);
+
+  return (
+    <div>
+      props: {props.counter} {"  "} prevProps:{refPrevProps.current}
+    </div>
+  );
+}
+
+const Input = React.forwardRef((props, ref) => {
+  return (
+    <input
+      type={props.text}
+      placeholder={props.placeholder}
+      onKeyDown={props.onKeyEnter}
+      ref={ref}
+    />
+  );
+});

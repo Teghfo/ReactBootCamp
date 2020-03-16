@@ -4,6 +4,8 @@ import ParentMemoTest from "./UseMemoTest";
 import UseRefTest, { Timer } from "./UseRefTest";
 import ForwardRefTest from "./ForwardRefTest";
 import RouteTest from "./RouteTest";
+import RenderProps from "./RenderProps";
+import FormGitFollowers from "./FormGitFollowers";
 function App() {
   return (
     <div className="App">
@@ -11,7 +13,9 @@ function App() {
       {/* <UseRefTest /> */}
       {/* <Timer /> */}
       {/* <ForwardRefTest /> */}
-      <RouteTest />
+      {/* <RouteTest /> */}
+      {/* <RenderProps /> */}
+      <FormGitFollowers />
     </div>
   );
 }

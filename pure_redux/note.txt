@@ -1,0 +1,7 @@
+Component  ===> state (local) , props (input)  
+10 page  ---- 500 component   ====> ?????!!!
+
+1. first solution ====>   context
+2. second solution ====> redux   markaz farmandehi ( global state + functionality )    <<=== subscribe
+
+dispatch ====> markaz  ---> change state  ======> all subscribe

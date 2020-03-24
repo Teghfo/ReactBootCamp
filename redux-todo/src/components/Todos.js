@@ -49,8 +49,9 @@ const mapStateToProps = state => {
 
 // const mapDispatchToProps = dispatch => {
 //   return {
-//     filterTodo: dispatch({
+//     filterTodo: id => dispatch({
 //       type: "ADD_TODO"
+//        id
 //     })
 //   };
 // };

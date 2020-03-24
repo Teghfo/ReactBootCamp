@@ -1,0 +1,160 @@
+.container {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  padding: 20px;
+}
+
+.addTodo {
+  text-align: center;
+
+  span {
+    font-size: 20px;
+    border-radius: 20px;
+    padding: 0 5px;
+    background-color: greenyellow;
+    &:hover {
+      cursor: pointer;
+      background-color: darkorange;
+    }
+    &:active {
+      background-color: lightgreen;
+    }
+  }
+  input[type="text"] {
+    border-radius: 25px;
+    flex: 1;
+    padding: 10px 4px;
+    border: solid greenyellow;
+    width: 40%;
+    -webkit-transition: width 0.5s ease-in-out;
+    transition: width 0.5s ease-in-out;
+    transition: 0.5s ease-in-out;
+    &:focus {
+      border-color: darkorange;
+      transition: 0.5s ease-in-out;
+      outline: none;
+      width: 60%;
+    }
+  }
+}
+
+.TodoItem {
+  width: 100%;
+  border-radius: 10px;
+  align-items: center;
+  border: solid darkgrey;
+  display: flex;
+  justify-content: center;
+  margin: 5px 0;
+  overflow: hidden;
+  &.completed {
+    .name {
+      text-decoration: line-through;
+      color: blue;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+  .todoDetail {
+    flex: 3;
+    text-align: left;
+    margin-left: 10px;
+    .name {
+      font-weight: 500;
+      font-size: 25px;
+      margin: 0;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    .date {
+      font-weight: 300;
+      font-size: 15px;
+      margin: 0;
+    }
+  }
+}
+.todoButtons {
+  align-self: stretch;
+
+  button {
+    height: 100%;
+    border: 0;
+    &:hover {
+      cursor: pointer;
+    }
+    &:focus {
+      outline: none;
+    }
+    &.edit {
+      background-color: white;
+      color: blueviolet;
+      &:hover {
+        background-color: blueviolet;
+        color: white;
+      }
+    }
+    &.delete {
+      background-color: white;
+      color: yellowgreen;
+      &:hover {
+        background-color: yellowgreen;
+        color: white;
+      }
+    }
+  }
+}
+.edditTodo {
+  span {
+    font-size: 20px;
+    border-radius: 20px;
+    padding: 0 5px;
+    background-color: greenyellow;
+    &:hover {
+      cursor: pointer;
+      background-color: darkorange;
+    }
+  }
+  input[type="text"] {
+    flex: 1;
+    padding: 10px 4px;
+    border: none;
+    &:focus {
+      outline: none;
+    }
+  }
+}
+.filter {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  border-radius: 10px;
+  overflow: hidden;
+  button {
+    flex: 1;
+    border: none;
+    padding: 10px;
+    font-family: Apple Chancery, cursive;
+    font-weight: 600;
+    &:hover {
+      cursor: pointer;
+      background-color: grey;
+    }
+    &:active {
+      background-color: lightgray;
+    }
+    &:focus {
+      outline: none;
+    }
+  }
+  button:first-child {
+    border-right: 1px solid black;
+  }
+  button:last-child {
+    border-left: 1px solid black;
+  }
+}

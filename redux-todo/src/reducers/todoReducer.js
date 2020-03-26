@@ -5,7 +5,14 @@ import {
   REMOVE_TODO
 } from "../actions/actionTypes";
 
-const todoReducer = (state = [], action) => {
+const initialState = {
+  name: "pitza",
+  id: 29,
+  date: new Date().toLocaleDateString("fa-IR"),
+  done: false
+};
+
+const todoReducer = (state = [initialState], action) => {
   // Optimize!!!
   const newState = state.map(todo => {
     return { ...todo };

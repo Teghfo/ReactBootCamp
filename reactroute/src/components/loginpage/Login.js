@@ -19,13 +19,12 @@ export default function Login({ location, history }) {
     })
       .then(res => {
         if (res.status === 400) {
-          console.log('boro bemir')
-
+          setUserName('')
+          setPassword('')
         }
         return res.json()
       })
       .then(data => {
-        console.log(data);
         if (data.token) {
 
           localStorage.setItem("token", data.token);
@@ -35,10 +34,7 @@ export default function Login({ location, history }) {
           // push to from page after logedin
           const { from } = location.state || { from: { pathname: '/' } }
           history.push(from)
-        } else {
-          history.push('/login')
         }
-
       })
       .catch(err => console.log(err));
   };

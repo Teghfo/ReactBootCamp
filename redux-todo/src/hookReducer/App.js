@@ -43,10 +43,11 @@ export function App() {
         dispatchFetcher: dispatchFetcher
       }}
     >
-      <CounterOne />
+      <CounterOne />snapshot
       <CounterThree />
     </counterContext.Provider>
   );
 }
 
 // useState vs useReducer ----> state object  (useReducer) , logic complex (useReducer) , useReducer more readble compare to useState
+// snapshot , mock

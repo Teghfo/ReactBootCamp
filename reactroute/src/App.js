@@ -6,7 +6,11 @@ import "./App.css";
 // import RouteTest from "./RouteTest";
 // import RenderProps from "./RenderProps";
 // import FormGitFollowers from "./FormGitFollowers";
+import MapsaMentor from './MapsaMentor'
+import ErrorBoundrary from './ErrorBoundrary'
+
 import LoginPage from "./components/loginpage/";
+
 function App() {
   return (
     <div >
@@ -19,7 +23,16 @@ function App() {
       {/* <RouteTest /> */}
       {/* <RenderProps /> */}
       {/* <FormGitFollowers /> */}
-      <LoginPage />
+      {/* <LoginPage /> */}
+
+      <ErrorBoundrary>
+        <MapsaMentor mentor='mentor khafane' />
+      </ErrorBoundrary>
+
+      <ErrorBoundrary>
+        <MapsaMentor mentor='ashkan' />
+      </ErrorBoundrary>
+
     </div>
   );
 }

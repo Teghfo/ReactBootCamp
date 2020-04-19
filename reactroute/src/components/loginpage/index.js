@@ -103,5 +103,5 @@ function Cards({ url }) {
     //   // headers: { 'Authorization': token },
     // }).then(data => console.log(data)).catch(err => console.log('Error Mapsa: ', err));
   }, [url]);
-  return <div>{loading ? 'Loading ....' : cards.map(card => (<div><span>item name: {card.item_name}</span>{' ==== '}<span>quantity: {card.quantity}</span></div>))}</div>;
+  return <div>{loading ? 'Loading ....' : cards.map((card, index) => (<div key={index}><span>item name: {card.item_name}</span>{' ==== '}<span>quantity: {card.quantity}</span></div>))}</div>;
 }
